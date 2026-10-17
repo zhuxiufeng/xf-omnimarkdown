@@ -2,7 +2,7 @@
   "name": "xf-omnimarkdown",
   "displayName": "XF OmniMarkdown",
   "description": "All-in-one Markdown productivity suite: Interactive Mermaid diagrams (high contrast, themes, trace highlight, search, minimap), Obsidian/GitHub Callouts, KaTeX math, Table alignment, and Pangu spacing.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "xf",
   "icon": "resources/icon.png",
   "repository": {
