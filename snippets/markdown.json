@@ -1,0 +1,160 @@
+{
+  "Mermaid Flowchart (TD)": {
+    "prefix": [
+      "flowchart",
+      "mermaid-flow",
+      "mm-flow"
+    ],
+    "body": [
+      "```mermaid",
+      "flowchart TD",
+      "    Start([开始]) --> Step1[步骤 1: 处理输入]",
+      "    Step1 --> Cond{是否满足条件?}",
+      "    Cond -- 是 --> Step2[步骤 2: 执行逻辑]",
+      "    Cond -- 否 --> Retry[重试或报警]",
+      "    Step2 --> End([结束])",
+      "    Retry --> Step1",
+      "```"
+    ],
+    "description": "插入 Mermaid 纵向流程图 (Flowchart TD)"
+  },
+  "Mermaid Flowchart (LR)": {
+    "prefix": [
+      "flowchart-lr",
+      "mermaid-lr",
+      "mm-lr"
+    ],
+    "body": [
+      "```mermaid",
+      "flowchart LR",
+      "    A[输入] --> B[核心算法解析]",
+      "    B --> C[数据驱动校验]",
+      "    C --> D[输出结果]",
+      "```"
+    ],
+    "description": "插入 Mermaid 横向流程图 (Flowchart LR)"
+  },
+  "Mermaid Sequence Diagram": {
+    "prefix": [
+      "sequence",
+      "mermaid-seq",
+      "mm-seq"
+    ],
+    "body": [
+      "```mermaid",
+      "sequenceDiagram",
+      "    autonumber",
+      "    actor User as 用户",
+      "    participant Client as 客户端",
+      "    participant Server as 后端服务",
+      "    participant DB as 数据库",
+      "",
+      "    User->>Client: 发起请求操作",
+      "    Client->>Server: HTTP POST /api/data",
+      "    activate Server",
+      "    Server->>DB: 查询或更新记录",
+      "    DB-->>Server: 返回结果",
+      "    Server-->>Client: 200 OK (响应数据)",
+      "    deactivate Server",
+      "    Client-->>User: 渲染最新界面",
+      "```"
+    ],
+    "description": "插入 Mermaid 时序图 (Sequence Diagram)"
+  },
+  "Mermaid State Diagram": {
+    "prefix": [
+      "statediagram",
+      "mermaid-state",
+      "mm-state"
+    ],
+    "body": [
+      "```mermaid",
+      "stateDiagram-v2",
+      "    [*] --> Idle: 系统初始化",
+      "    Idle --> Running: 收到启动信号",
+      "    Running --> Paused: 触发暂停",
+      "    Paused --> Running: 恢复运行",
+      "    Running --> Error: 检测到异常",
+      "    Error --> Idle: 复位消除错误",
+      "    Running --> [*]: 正常停止",
+      "```"
+    ],
+    "description": "插入 Mermaid 状态机图 (State Diagram)"
+  },
+  "Mermaid Gantt Chart": {
+    "prefix": [
+      "gantt",
+      "mermaid-gantt",
+      "mm-gantt"
+    ],
+    "body": [
+      "```mermaid",
+      "gantt",
+      "    title 项目计划甘特图",
+      "    dateFormat YYYY-MM-DD",
+      "    section 需求与架构",
+      "    需求评审          :done,    des1, 2026-01-01, 2026-01-05",
+      "    系统架构设计      :active,  des2, 2026-01-06, 2026-01-12",
+      "    section 开发实现",
+      "    核心算法开发      :crit, active, dev1, 2026-01-13, 10d",
+      "    联调与交付测试    :         dev2, after dev1, 5d",
+      "```"
+    ],
+    "description": "插入 Mermaid 甘特图 (Gantt Chart)"
+  },
+  "Callout Note": {
+    "prefix": [
+      "callout-note",
+      "mc-note"
+    ],
+    "body": [
+      "> [!NOTE]",
+      "> ${1:这里输入提示说明内容}"
+    ],
+    "description": "插入 GitHub 风格 Note 提示框"
+  },
+  "Callout Tip": {
+    "prefix": [
+      "callout-tip",
+      "mc-tip"
+    ],
+    "body": [
+      "> [!TIP]",
+      "> ${1:这里输入操作建议或最佳实践技巧}"
+    ],
+    "description": "插入 GitHub 风格 Tip 建议框"
+  },
+  "Callout Warning": {
+    "prefix": [
+      "callout-warning",
+      "mc-warning"
+    ],
+    "body": [
+      "> [!WARNING]",
+      "> ${1:注意：这里输入需要警惕的风险与注意事项}"
+    ],
+    "description": "插入 GitHub 风格 Warning 警告框"
+  },
+  "Callout Important": {
+    "prefix": [
+      "callout-important",
+      "mc-important"
+    ],
+    "body": [
+      "> [!IMPORTANT]",
+      "> ${1:重要：此配置或步骤至关重要，请仔细核对}"
+    ],
+    "description": "插入 GitHub 风格 Important 重要提示框"
+  },
+  "Callout Caution": {
+    "prefix": [
+      "callout-caution",
+      "mc-caution"
+    ],
+    "body": [
+      "> [!CAUTION]",
+      "> ${1:高危：执行此操作可能导致数据丢失或系统故障，请谨慎处理}"
+    ],
+    "description": "插入 GitHub 风格 Caution 高危警示框"
+  }
+}

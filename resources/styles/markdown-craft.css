@@ -1,0 +1,705 @@
+/* ==========================================================================
+   Markdown Craft - Premium Visual Styles
+   ========================================================================== */
+
+:root {
+  --mc-radius: 8px;
+  --mc-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --mc-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --mc-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* Light Theme Accents */
+  --mc-callout-note-border: #0969da;
+  --mc-callout-note-bg: rgba(9, 105, 218, 0.06);
+  --mc-callout-tip-border: #1a7f37;
+  --mc-callout-tip-bg: rgba(26, 127, 55, 0.06);
+  --mc-callout-important-border: #8250df;
+  --mc-callout-important-bg: rgba(130, 80, 223, 0.06);
+  --mc-callout-warning-border: #9a6700;
+  --mc-callout-warning-bg: rgba(154, 103, 0, 0.07);
+  --mc-callout-caution-border: #cf222e;
+  --mc-callout-caution-bg: rgba(207, 34, 46, 0.06);
+}
+
+.vscode-dark, body.vscode-dark {
+  --mc-callout-note-border: #2f81f7;
+  --mc-callout-note-bg: rgba(56, 139, 253, 0.12);
+  --mc-callout-tip-border: #3fb950;
+  --mc-callout-tip-bg: rgba(46, 160, 67, 0.12);
+  --mc-callout-important-border: #a371f7;
+  --mc-callout-important-bg: rgba(163, 113, 247, 0.12);
+  --mc-callout-warning-border: #d29922;
+  --mc-callout-warning-bg: rgba(187, 128, 9, 0.12);
+  --mc-callout-caution-border: #f85149;
+  --mc-callout-caution-bg: rgba(248, 81, 73, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   1. Callouts / Alerts
+   -------------------------------------------------------------------------- */
+.markdown-craft-callout {
+  margin: 1.25rem 0;
+  padding: 0.85rem 1.15rem;
+  border-left: 4px solid var(--mc-callout-note-border);
+  background-color: var(--mc-callout-note-bg);
+  border-radius: var(--mc-radius);
+  box-shadow: var(--mc-shadow-sm);
+  transition: var(--mc-transition);
+}
+
+.markdown-craft-callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  user-select: none;
+  cursor: default;
+}
+
+.markdown-craft-callout-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.markdown-craft-callout-title {
+  flex-grow: 1;
+}
+
+.markdown-craft-callout-content {
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+.markdown-craft-callout-content > :first-child {
+  margin-top: 0;
+}
+
+.markdown-craft-callout-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Callout Types */
+.markdown-craft-callout-note, .markdown-craft-callout-info {
+  border-left-color: var(--mc-callout-note-border);
+  background-color: var(--mc-callout-note-bg);
+}
+.markdown-craft-callout-note .markdown-craft-callout-header,
+.markdown-craft-callout-info .markdown-craft-callout-header {
+  color: var(--mc-callout-note-border);
+}
+
+.markdown-craft-callout-tip, .markdown-craft-callout-success {
+  border-left-color: var(--mc-callout-tip-border);
+  background-color: var(--mc-callout-tip-bg);
+}
+.markdown-craft-callout-tip .markdown-craft-callout-header,
+.markdown-craft-callout-success .markdown-craft-callout-header {
+  color: var(--mc-callout-tip-border);
+}
+
+.markdown-craft-callout-important, .markdown-craft-callout-question {
+  border-left-color: var(--mc-callout-important-border);
+  background-color: var(--mc-callout-important-bg);
+}
+.markdown-craft-callout-important .markdown-craft-callout-header,
+.markdown-craft-callout-question .markdown-craft-callout-header {
+  color: var(--mc-callout-important-border);
+}
+
+.markdown-craft-callout-warning {
+  border-left-color: var(--mc-callout-warning-border);
+  background-color: var(--mc-callout-warning-bg);
+}
+.markdown-craft-callout-warning .markdown-craft-callout-header {
+  color: var(--mc-callout-warning-border);
+}
+
+.markdown-craft-callout-caution, .markdown-craft-callout-bug {
+  border-left-color: var(--mc-callout-caution-border);
+  background-color: var(--mc-callout-caution-bg);
+}
+.markdown-craft-callout-caution .markdown-craft-callout-header,
+.markdown-craft-callout-bug .markdown-craft-callout-header {
+  color: var(--mc-callout-caution-border);
+}
+
+/* Collapsible Callouts */
+details.markdown-craft-callout summary {
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+}
+details.markdown-craft-callout summary::-webkit-details-marker {
+  display: none;
+}
+.markdown-craft-callout-chevron {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+details.markdown-craft-callout[open] .markdown-craft-callout-chevron {
+  transform: rotate(90deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. KaTeX Math Blocks
+   -------------------------------------------------------------------------- */
+.markdown-craft-math-block {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+  border-radius: var(--mc-radius);
+  background: rgba(127, 127, 127, 0.04);
+}
+.katex-display {
+  margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Mermaid Diagram Container (1:1 Official Mermaid.live Aesthetics)
+   -------------------------------------------------------------------------- */
+.markdown-craft-mermaid-wrapper {
+  position: relative;
+  margin: 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(127, 127, 127, 0.02);
+  padding: 1.5rem 1rem;
+  border-radius: var(--mc-radius);
+  border: 1px solid rgba(127, 127, 127, 0.15);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.markdown-craft-mermaid-wrapper:hover {
+  border-color: rgba(127, 127, 127, 0.25);
+}
+
+.markdown-craft-mermaid-wrapper.fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999999 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  background: var(--vscode-editor-background, #1e1e1e) !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+.markdown-craft-mermaid-wrapper.fullscreen .markdown-craft-mermaid-viewport {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+.markdown-craft-mermaid-wrapper.fullscreen .markdown-craft-mermaid-toolbar {
+  top: 14px !important;
+  right: 18px !important;
+  opacity: 0.9 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+}
+
+.markdown-craft-mermaid-toolbar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 5px;
+  background: var(--vscode-editor-background, #fff);
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  opacity: 0.4;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.markdown-craft-mermaid-wrapper:hover .markdown-craft-mermaid-toolbar {
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.mc-toolbar-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(127, 127, 127, 0.25);
+  margin: 0 2px;
+}
+
+.mc-zoom-btn {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--vscode-editor-foreground, inherit);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mc-zoom-btn:hover {
+  background-color: rgba(127, 127, 127, 0.18);
+}
+
+.mc-zoom-input {
+  width: 44px;
+  height: 20px;
+  padding: 0 2px;
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--vscode-editor-foreground, inherit);
+  outline: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.mc-zoom-input:hover {
+  background: var(--vscode-input-background, rgba(127, 127, 127, 0.1));
+  border-color: rgba(127, 127, 127, 0.25);
+}
+
+.mc-zoom-input:focus {
+  background: var(--vscode-input-background, rgba(127, 127, 127, 0.12));
+  border-color: var(--vscode-focusBorder, #007fd4);
+  box-shadow: 0 0 0 1px var(--vscode-focusBorder, #007fd4);
+}
+
+.markdown-craft-mermaid-viewport {
+  width: 100%;
+  max-height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.markdown-craft-mermaid-viewport.grabbing {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.markdown-craft-mermaid-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.markdown-craft-mermaid-content svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Friendly Mermaid Error Styling */
+.mc-mermaid-error {
+  padding: 12px 14px;
+  background: rgba(248, 81, 73, 0.08);
+  border: 1px solid rgba(248, 81, 73, 0.35);
+  border-left: 4px solid #f85149;
+  border-radius: 6px;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mc-mermaid-error-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #f85149;
+  margin-bottom: 6px;
+}
+.mc-error-badge {
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 10px;
+  background: rgba(248, 81, 73, 0.2);
+  border-radius: 3px;
+}
+.mc-mermaid-error-msg {
+  margin: 0 !important;
+  padding: 8px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  white-space: pre-wrap !important;
+  color: inherit !important;
+}
+
+/* --------------------------------------------------------------------------
+   Table Enhancement: Sticky Header, Zebra Stripes, Clean Borders
+   -------------------------------------------------------------------------- */
+table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  width: 100% !important;
+  margin: 1.25rem 0 !important;
+  border-radius: var(--mc-radius) !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(127, 127, 127, 0.2) !important;
+  display: table !important;
+}
+
+thead th {
+  position: sticky !important;
+  top: 0 !important;
+  background-color: var(--vscode-editor-background, #fff) !important;
+  border-bottom: 2px solid rgba(127, 127, 127, 0.25) !important;
+  padding: 0.6rem 0.85rem !important;
+  font-weight: 600 !important;
+  z-index: 2 !important;
+  box-shadow: 0 1px 0 rgba(127, 127, 127, 0.15) !important;
+}
+
+tbody td {
+  padding: 0.5rem 0.85rem !important;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.1) !important;
+  transition: background-color 0.12s ease !important;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(127, 127, 127, 0.04) !important;
+}
+
+tbody tr:hover {
+  background-color: rgba(127, 127, 127, 0.09) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Enhanced Code Block with Copy Button
+   -------------------------------------------------------------------------- */
+.markdown-craft-code-block {
+  position: relative;
+  margin: 1.25rem 0;
+  border-radius: var(--mc-radius);
+  overflow: hidden;
+  box-shadow: var(--mc-shadow-sm);
+  border: 1px solid rgba(127, 127, 127, 0.15);
+}
+.markdown-craft-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(127, 127, 127, 0.08);
+  font-size: 0.78rem;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.1);
+  user-select: none;
+}
+.markdown-craft-code-lang {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+.markdown-craft-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+  color: inherit;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: var(--mc-transition);
+}
+.markdown-craft-copy-btn:hover {
+  background-color: rgba(127, 127, 127, 0.15);
+  border-color: rgba(127, 127, 127, 0.4);
+}
+.markdown-craft-code-block pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Inline Tags (Highlight, Ins, Kbd)
+   -------------------------------------------------------------------------- */
+mark.markdown-craft-mark {
+  background: linear-gradient(120deg, rgba(255, 235, 59, 0.45) 0%, rgba(255, 235, 59, 0.3) 100%);
+  color: inherit;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+.vscode-dark mark.markdown-craft-mark {
+  background: linear-gradient(120deg, rgba(250, 204, 21, 0.35) 0%, rgba(234, 179, 8, 0.2) 100%);
+}
+
+u.markdown-craft-ins {
+  text-decoration: underline wavy var(--mc-callout-note-border);
+  text-underline-offset: 3px;
+}
+
+kbd.markdown-craft-kbd {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.82em;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  vertical-align: baseline;
+  background-color: rgba(127, 127, 127, 0.08);
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-bottom: 2px solid rgba(127, 127, 127, 0.4);
+  border-radius: 5px;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  margin: 0 0.15em;
+}
+
+/* --------------------------------------------------------------------------
+   6. Media Containers
+   -------------------------------------------------------------------------- */
+.markdown-craft-media {
+  margin: 1.25rem 0;
+  border-radius: var(--mc-radius);
+}
+.markdown-craft-media .media-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  opacity: 0.85;
+}
+
+/* Mermaid Theme Switcher Toast Notification */
+.mc-theme-toast {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  color: var(--vscode-editor-foreground, #cccccc);
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+.mc-theme-toast.show {
+  opacity: 0.95;
+  transform: translateY(0);
+}
+
+/* Connection lines & edge labels high contrast */
+.markdown-craft-mermaid-content svg .edgePaths .path,
+.markdown-craft-mermaid-content svg .flowchart-link,
+.markdown-craft-mermaid-content svg path.link,
+.markdown-craft-mermaid-content svg .transition {
+  stroke-width: 2px !important;
+  stroke-opacity: 0.95 !important;
+}
+
+.markdown-craft-mermaid-content svg .arrowheadPath,
+.markdown-craft-mermaid-content svg marker path {
+  opacity: 0.95 !important;
+}
+
+/* Ensure no text in SVG is clipped by foreignObject boundaries */
+.markdown-craft-mermaid-content svg foreignObject {
+  overflow: visible !important;
+}
+
+/* Clean edge label pill styling without disrupting native vertical centering */
+.markdown-craft-mermaid-content svg .edgeLabel rect {
+  rx: 4px;
+  ry: 4px;
+  opacity: 0.85 !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Advanced Mermaid Tool Suite Enhancements
+   -------------------------------------------------------------------------- */
+
+/* Engineering Dot Grid Background */
+.markdown-craft-mermaid-viewport.mc-grid-active {
+  background-image: radial-gradient(rgba(127, 127, 127, 0.28) 1.2px, transparent 1.2px) !important;
+  background-size: 20px 20px !important;
+}
+
+/* Minimap Navigator */
+.mc-minimap {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 140px;
+  height: 90px;
+  background: var(--vscode-editor-background, #1e1e1e);
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  z-index: 25;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mc-minimap:hover {
+  border-color: rgba(56, 189, 248, 0.6);
+}
+.mc-minimap-preview {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+.mc-minimap-preview svg {
+  max-width: 90% !important;
+  max-height: 90% !important;
+  opacity: 0.55 !important;
+  pointer-events: none !important;
+}
+.mc-minimap-rect {
+  position: absolute;
+  border: 1.5px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 3px;
+  pointer-events: none;
+  box-sizing: border-box;
+  transition: width 0.05s ease, height 0.05s ease;
+}
+
+/* Slide-out Search Box */
+.mc-search-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+  padding: 1px 4px;
+  background: var(--vscode-input-background, rgba(127, 127, 127, 0.12));
+  border: 1px solid var(--vscode-focusBorder, #007fd4);
+  border-radius: 4px;
+  z-index: 12;
+}
+.mc-search-input {
+  width: 110px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--vscode-input-foreground, inherit);
+  font-size: 11px;
+  padding: 0 2px;
+}
+.mc-search-count {
+  font-size: 10px;
+  color: var(--vscode-descriptionForeground, #888);
+  margin: 0 2px;
+  white-space: nowrap;
+}
+.mc-search-nav {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+  color: var(--vscode-editor-foreground, inherit);
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0;
+}
+.mc-search-nav:hover {
+  background: rgba(127, 127, 127, 0.2);
+}
+
+/* Search Highlights on Diagram Nodes */
+.markdown-craft-mermaid-content svg .node.mc-search-matched rect,
+.markdown-craft-mermaid-content svg .node.mc-search-matched polygon,
+.markdown-craft-mermaid-content svg .node.mc-search-matched circle {
+  stroke: #eab308 !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 6px #eab308);
+}
+.markdown-craft-mermaid-content svg .node.mc-search-current rect,
+.markdown-craft-mermaid-content svg .node.mc-search-current polygon,
+.markdown-craft-mermaid-content svg .node.mc-search-current circle {
+  stroke: #38bdf8 !important;
+  stroke-width: 3.5px !important;
+  filter: drop-shadow(0 0 8px #38bdf8);
+}
+
+/* Hover Trace Neon Highlighting */
+.markdown-craft-mermaid-content svg.mc-trace-active .node {
+  transition: opacity 0.25s ease;
+}
+.markdown-craft-mermaid-content svg.mc-trace-active .edgePath,
+.markdown-craft-mermaid-content svg.mc-trace-active .edgeLabel {
+  transition: opacity 0.25s ease;
+}
+.markdown-craft-mermaid-content svg.mc-trace-active .node.mc-dimmed,
+.markdown-craft-mermaid-content svg.mc-trace-active .edgePath.mc-dimmed,
+.markdown-craft-mermaid-content svg.mc-trace-active .edgeLabel.mc-dimmed {
+  opacity: 0.15 !important;
+}
+.markdown-craft-mermaid-content svg.mc-trace-active .node.mc-node-highlight rect,
+.markdown-craft-mermaid-content svg.mc-trace-active .node.mc-node-highlight polygon,
+.markdown-craft-mermaid-content svg.mc-trace-active .node.mc-node-highlight circle {
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+.markdown-craft-mermaid-content svg.mc-trace-active .edgePath.mc-edge-highlight .path {
+  stroke-width: 3.5px !important;
+  stroke-opacity: 1 !important;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+/* Click-to-Source Pulse Animation */
+@keyframes mc-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 10px #38bdf8); }
+  100% { transform: scale(1); }
+}
+.markdown-craft-mermaid-content svg .node.mc-node-clicked {
+  animation: mc-pulse 0.4s ease-out;
+}

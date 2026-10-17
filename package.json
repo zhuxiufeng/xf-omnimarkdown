@@ -1,0 +1,203 @@
+{
+  "name": "markdown-craft",
+  "displayName": "Markdown Craft",
+  "description": "All-in-one Markdown enhancement suite: Obsidian/GitHub Callouts, KaTeX math, Mermaid diagrams, Audio/Video media, TOC generator, Table formatter, Pangu typography spacing, and 1-click WeChat/HTML export.",
+  "version": "1.0.1",
+  "publisher": "Vivian",
+  "icon": "resources/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhuxiufeng/markdown-craft"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Formatters",
+    "Visualization",
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "markdown",
+    "preview",
+    "callout",
+    "alert",
+    "mermaid",
+    "katex",
+    "math",
+    "toc",
+    "table-formatter",
+    "pangu",
+    "wechat-export"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onCommand:markdown-craft.openPreview"
+  ],
+  "contributes": {
+    "markdown.markdownItPlugins": true,
+    "markdown.previewStyles": [
+      "./resources/styles/katex.min.css",
+      "./resources/styles/markdown-craft.css"
+    ],
+    "markdown.previewScripts": [
+      "./resources/scripts/mermaid.min.js",
+      "./resources/scripts/markdown-craft-preview.js"
+    ],
+    "commands": [
+      {
+        "command": "markdown-craft.openPreview",
+        "title": "Open Preview to the Side",
+        "category": "Markdown Craft",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "markdown-craft.insertTOC",
+        "title": "Insert / Update Table of Contents (TOC)",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.formatTable",
+        "title": "Auto Format Table (CJK Column Alignment)",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.formatPangu",
+        "title": "Format Typography (CJK Spacing / Pangu)",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.insertCallout",
+        "title": "Insert Callout Block (Note, Tip, Warning...)",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.exportHTML",
+        "title": "Export Standalone HTML (Offline Ready)",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.toggleTask",
+        "title": "Toggle Task List Item ([ ] <-> [x])",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.pasteImage",
+        "title": "Markdown Craft: 粘贴剪贴板截图 (Paste Image as File)",
+        "category": "Markdown Craft"
+      },
+      {
+        "command": "markdown-craft.toggleMermaidDirection",
+        "title": "Markdown Craft: 切换图表排版方向 (TD ↔ LR)",
+        "category": "Markdown Craft"
+      }
+    ],
+    "menus": {
+      "editor/title": [],
+      "editor/context": [
+        {
+          "command": "markdown-craft.openPreview",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@0"
+        },
+        {
+          "command": "markdown-craft.insertCallout",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@1"
+        },
+        {
+          "command": "markdown-craft.insertTOC",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@2"
+        },
+        {
+          "command": "markdown-craft.formatTable",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@3"
+        },
+        {
+          "command": "markdown-craft.formatPangu",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@4"
+        },
+        {
+          "command": "markdown-craft.exportHTML",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@6"
+        },
+        {
+          "command": "markdown-craft.pasteImage",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@5"
+        },
+        {
+          "command": "markdown-craft.toggleMermaidDirection",
+          "when": "editorLangId == markdown",
+          "group": "markdown-craft@4"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "markdown-craft.openPreview",
+        "key": "ctrl+k v",
+        "mac": "cmd+k v",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdown-craft.toggleTask",
+        "key": "alt+enter",
+        "mac": "alt+enter",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "markdown-craft.pasteImage",
+        "key": "ctrl+alt+v",
+        "mac": "cmd+alt+v",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Markdown Craft",
+      "properties": {
+        "markdownCraft.pangu.autoFormatOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "保存 Markdown 文件时自动规范中英文与数字间距（盘古之白）"
+        }
+      }
+    },
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./snippets/markdown.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "node esbuild.js --production",
+    "watch": "node esbuild.js --watch",
+    "lint": "tsc --noEmit",
+    "package": "yes | npx @vscode/vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^20.11.24",
+    "@types/pangu": "^3.3.3",
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^3.2.1",
+    "esbuild": "^0.20.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "katex": "^0.16.21",
+    "markdown-it": "^14.1.0",
+    "mermaid": "^11.4.1",
+    "pangu": "^4.0.7"
+  }
+}
