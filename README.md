@@ -1,4 +1,4 @@
-# Markdown Craft (VS Code 增强套件)
+# XF OmniMarkdown (VS Code 增强套件)
 
 > 一款全能、丝滑且轻量的 Markdown 生产力与视觉增强扩展，深度集成 VS Code 原生 Markdown 预览环境。
 
@@ -24,13 +24,13 @@
 
 | 命令名称 | 命令 ID | 描述 |
 | :--- | :--- | :--- |
-| **Insert Callout Block** | `markdown-craft.insertCallout` | 交互式选择类型并插入告警框代码片段 |
-| **Insert / Update Table of Contents** | `markdown-craft.insertTOC` | 插入或在现有 `<!-- TOC -->` 标记处更新目录 |
-| **Auto Format Table** | `markdown-craft.formatTable` | 对齐中英文表格列宽与分隔线 |
-| **Format Typography (CJK Pangu)** | `markdown-craft.formatPangu` | 中英文/数字规范化空格排版 |
-| **Copy for WeChat Official Account** | `markdown-craft.exportWeChat` | 格式化并复制适合微信编辑器的富文本 |
-| **Export Standalone HTML** | `markdown-craft.exportHTML` | 导出包含所有样式的自包含离线 HTML 文件 |
-| **Toggle Task List Item** | `markdown-craft.toggleTask` | 快捷键 `Alt+Enter` 切换 `[ ]` 与 `[x]` |
+| **Insert Callout Block** | `xf-omnimarkdown.insertCallout` | 交互式选择类型并插入告警框代码片段 |
+| **Insert / Update Table of Contents** | `xf-omnimarkdown.insertTOC` | 插入或在现有 `<!-- TOC -->` 标记处更新目录 |
+| **Auto Format Table** | `xf-omnimarkdown.formatTable` | 对齐中英文表格列宽与分隔线 |
+| **Format Typography (CJK Pangu)** | `xf-omnimarkdown.formatPangu` | 中英文/数字规范化空格排版 |
+| **Copy for WeChat Official Account** | `xf-omnimarkdown.exportWeChat` | 格式化并复制适合微信编辑器的富文本 |
+| **Export Standalone HTML** | `xf-omnimarkdown.exportHTML` | 导出包含所有样式的自包含离线 HTML 文件 |
+| **Toggle Task List Item** | `xf-omnimarkdown.toggleTask` | 快捷键 `Alt+Enter` 切换 `[ ]` 与 `[x]` |
 
 ---
 

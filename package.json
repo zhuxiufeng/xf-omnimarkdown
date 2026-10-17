@@ -1,13 +1,13 @@
 {
-  "name": "markdown-craft",
-  "displayName": "Markdown Craft",
-  "description": "All-in-one Markdown enhancement suite: Obsidian/GitHub Callouts, KaTeX math, Mermaid diagrams, Audio/Video media, TOC generator, Table formatter, Pangu typography spacing, and 1-click WeChat/HTML export.",
-  "version": "1.0.1",
-  "publisher": "Vivian",
+  "name": "xf-omnimarkdown",
+  "displayName": "XF OmniMarkdown",
+  "description": "All-in-one Markdown productivity suite: Interactive Mermaid diagrams (high contrast, themes, trace highlight, search, minimap), Obsidian/GitHub Callouts, KaTeX math, Table alignment, and Pangu spacing.",
+  "version": "1.0.0",
+  "publisher": "xf",
   "icon": "resources/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhuxiufeng/markdown-craft"
+    "url": "https://github.com/zhuxiufeng/xf-omnimarkdown"
   },
   "engines": {
     "vscode": "^1.75.0"
@@ -50,48 +50,48 @@
       {
         "command": "markdown-craft.openPreview",
         "title": "Open Preview to the Side",
-        "category": "Markdown Craft",
+        "category": "XF OmniMarkdown",
         "icon": "$(open-preview)"
       },
       {
         "command": "markdown-craft.insertTOC",
         "title": "Insert / Update Table of Contents (TOC)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.formatTable",
         "title": "Auto Format Table (CJK Column Alignment)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.formatPangu",
         "title": "Format Typography (CJK Spacing / Pangu)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.insertCallout",
         "title": "Insert Callout Block (Note, Tip, Warning...)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.exportHTML",
         "title": "Export Standalone HTML (Offline Ready)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.toggleTask",
         "title": "Toggle Task List Item ([ ] <-> [x])",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.pasteImage",
         "title": "Markdown Craft: 粘贴剪贴板截图 (Paste Image as File)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       },
       {
         "command": "markdown-craft.toggleMermaidDirection",
         "title": "Markdown Craft: 切换图表排版方向 (TD ↔ LR)",
-        "category": "Markdown Craft"
+        "category": "XF OmniMarkdown"
       }
     ],
     "menus": {
@@ -161,7 +161,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Markdown Craft",
+      "title": "XF OmniMarkdown",
       "properties": {
         "markdownCraft.pangu.autoFormatOnSave": {
           "type": "boolean",
